@@ -9,7 +9,7 @@ const PageLayout = ({children, title}) => {
                 <title>{title} - FazlaGıda Case Study</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
-            <div className="max-w-6xl bg-gray-500 flex flex-col items-center mx-auto">
+            <div className="max-w-6xl rounded-lg bg-gray-700 py-10 flex flex-col items-center mx-auto">
                  {children}
             </div>
        </div>

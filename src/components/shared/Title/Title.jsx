@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Title = ({ children, size }) => {
+const Title = ({ children, size, position }) => {
 
     let sizes
     switch (size) {
@@ -17,8 +17,23 @@ const Title = ({ children, size }) => {
             return <h1 className="default-title"> {children} </h1>
     }
 
+    let positions
+    switch (position) {
+        case 'center':
+            position = "text-center"
+            break;
+        case 'left':
+            position = "text-left"
+            break;
+        case 'right':
+            position = "text-right"
+            break;
+        default:
+            break;
+    }
+
     return (
-        <h1 className={`${sizes}`}>{children}</h1>
+        <h1 className={`${sizes} m-5 ${position}`}>{children}</h1>
     )
 }
 
