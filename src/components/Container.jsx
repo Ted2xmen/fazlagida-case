@@ -1,16 +1,17 @@
 import React from 'react'
 import ArtistInfo from './ArtistInfo'
+import InfoContainer from './InfoContainer';
 
 
-const Container = () => {
+const Container = ({ albums, tracks}) => {
   return (
     <>
       <div>
         <ArtistInfo />
       </div>
       <div className="grid grid-cols-2 gap-5">
-        <div>Top Tracks</div>
-        <div>Top Albums</div>
+        <InfoContainer data={tracks} title="Top Tracks" />
+        <InfoContainer data={albums} title="Top Albums" />
       </div>
     </>
   )
