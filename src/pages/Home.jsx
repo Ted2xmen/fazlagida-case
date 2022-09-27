@@ -8,7 +8,7 @@ const Home = () => {
   const api_key = process.env.REACT_APP_LASTFM
 
   const fetchTopArtists = () => {
-    return axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${api_key}&format=json`)
+    return axios.get(`https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${api_key}&format=json`)
   }
   const { isLoading, data, error, isError, isFetching } = useQuery(['top-artists'], fetchTopArtists, {
     cacheTime: 5000,
