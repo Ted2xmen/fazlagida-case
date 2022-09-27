@@ -1,23 +1,23 @@
 import React from 'react'
 
-const Button = ({label, type, ...props}) => {
+const Button = ({label, shadow, type, ...props}) => {
 
     let types 
     switch (type) {
-        case "outline":
-           types = "border border-white text-white hover:bg-white hover:text-black" 
+        case "secondary":
+           types = "bg-teal-900 text-white " 
             break;
-         case "normal":
-           types = "border border-black text-black hover:bg-black hover:text-white" 
+         case "primary":
+           types = "border border-black bg-teal-100 text-black" 
             break;    
         default:
             break;
     }
 
-    // needs more
+    let isShadow = shadow ? "shadow-lg" : null
 
   return (
-    <button {...props} className={`m-1 mt-4 items-start bg-orange-700 ${types} p-1 text-xs`}>{label}</button>
+    <button {...props} className={`m-1 mt-4 rounded items-start ${isShadow} ${types} p-2 text-sm`}>{label}</button>
   )
 }
 

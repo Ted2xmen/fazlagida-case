@@ -10,7 +10,7 @@ const navLinks = [
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between space-x-4 mx-10 py-10">
+    <div className="flex justify-between items-center space-x-4 mx-10 py-10">
       <Title size="medium">fg.fm</Title>
       <div className="space-x-6 font-bold">
         {navLinks.map((item) => {

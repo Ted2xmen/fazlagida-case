@@ -13,11 +13,13 @@ const Template = (args) => <Badge {...args} />;
 export const Listeners = Template.bind({});
 Listeners.args = {
   type: "listeners",
+  icon: true,
   children: "123456"
 };
 
 export const Playcount = Template.bind({});
 Playcount.args = {
   type: "playcount",
+  icon: true,
   children: "123456"
 };

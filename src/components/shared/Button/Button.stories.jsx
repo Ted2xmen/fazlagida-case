@@ -12,11 +12,19 @@ export default {
 
 const Template = (args) => <Button {...args} />;
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   primary: true,
-//   label: 'Button',
-// };
+export const Primary = Template.bind({});
+Primary.args = {
+  type: "primary",
+  shadow: true,
+  label: 'Button',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  type: "secondary",
+  shadow: true,
+  label: 'Button',
+};
 
 
 
