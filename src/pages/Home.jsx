@@ -2,6 +2,7 @@ import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import Badge from '../components/shared/Badge/Badge'
 
 
 const Home = () => {
@@ -14,7 +15,8 @@ const Home = () => {
     cacheTime: 5000,
   })
 
-  if (isLoading) return <div>Loading...</div>
+  if(isLoading) return <div className='flex justify-center h-screen text-red-600 text-4xl'>Loading...</div>
+
   if (isError) return <div>{error.message}</div>
   // console.log({isLoading, isFetching}) cache control
   return (

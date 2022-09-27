@@ -5,7 +5,10 @@ import Badge from '../components/shared/Badge/Badge'
 const About = () => {
   return (
     <PageLayout title="About">
+      <div className='h-screen'>
       <Badge type="listeners">sad</Badge>
+
+      </div>
     </PageLayout>
   )
 }
