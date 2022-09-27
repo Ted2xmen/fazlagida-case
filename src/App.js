@@ -9,6 +9,8 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 
 const queryClient = new QueryClient()
 
@@ -23,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/details/:id" element={<Details />} />
         </Routes>
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </QueryClientProvider>
     </div>
   );
