@@ -4,6 +4,7 @@ import InfoContainer from './InfoContainer';
 
 
 const Container = ({ albums, tracks}) => {
+  console.log("albums", albums)
   return (
     <>
       <div>

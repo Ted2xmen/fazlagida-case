@@ -1,25 +1,44 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import Badge from '../Badge/Badge'
 import Button from '../Button/Button'
+import Title from '../Title/Title'
 
-const Card = ({ item }) => {
-  const navigate = useNavigate()
+const Card = ({ item, onClick, cardType }) => {
+
+  const Name = <Title size="medium">{item.name}</Title>
+
+  const OnClickComponent = onClick && <div className='p-2'>
+    {onClick && <Button type="primary" label="Details" onClick={onClick} />}
+  </div>
+
+  const Badges = <div className='flex space-x-3'>
+    {item.listeners && <Badge icon type="listeners"> {Number(item.listeners).toLocaleString('en-US')} </Badge>
+    }
+    {item.playcount && <Badge icon type="playcount"> {Number(item.playcount).toLocaleString('en-US')} </Badge>
+    }
+  </div>
+
+  const Cover = <img className='' src={item.image[2]['#text'] || item.image} alt="" />
+
+  let cardTypes
+  switch (cardType) {
+    case "TopArtists":
+      cardTypes = "bg-slate-700 space-y-2 pr-2 items-center rounded-lg"
+      break;
+    case "InfoContainer":
+      cardTypes = "bg-teal-700 p-4 space-x-5 hover:bg-teal-800"
+      break;
+    default:
+      break;
+  }
 
   return (
-    <div className="flex h-full w-full rounded-lg bg-slate-400 bg-opacity-20 shadow-sm backdrop-blur-lg border-2 border-teal-800 overflow-hidden">
-      <img
-          className="h-42 w-24 object-cover"
-          rc={item?.image[4]['#text']}
-          alt={item.name}
-        />
-      <div className="mt-3">
-        <Badge icon type="listeners"> {Number(item.listeners).toLocaleString('en-US')} </Badge>
-          <Badge icon type="playcount"> {Number(item.playcount).toLocaleString('en-US')} </Badge>
-        <div className="p-2">
-          <h5 className="text-sm font-bold">{item.name}</h5>
-          <Button shadow type="primary" label="Details" onClick={() => navigate(`/details/${item.mbid}`)} />
-        </div>
+    <div className={`${cardTypes} card`}>
+      {Cover}
+      <div className={`${cardType === "TopArtists" ? "flex flex-col  items-center" : "justify-center"}`}>
+        {Badges}
+        {Name}
+        {OnClickComponent}
       </div>
     </div>
   )

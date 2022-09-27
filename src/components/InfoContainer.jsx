@@ -5,12 +5,11 @@ import { nanoid } from '@reduxjs/toolkit'
 
 const InfoContainer = ({title, data}) => {
   return (
-      <div className='flex flex-col border border-teal-500 p-2'>
+      <div className='flex flex-col gap-4 p-2'>
           <Title size="medium">{title}</Title>
           {data.map((item, i) => {
             return (
-              <h3 key={nanoid()}> {i + 1} -  {item.name} </h3>
-              // <Card key={nanoid()} item={item} />
+            <Card cardType="InfoContainer" key={nanoid()} item={item} />
             );
           })}
         </div>
