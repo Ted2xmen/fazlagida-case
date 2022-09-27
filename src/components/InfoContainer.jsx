@@ -6,9 +6,9 @@ const InfoContainer = ({title, data}) => {
   return (
       <div className='flex flex-col border border-teal-500 p-2'>
           <Title size="medium">{title}</Title>
-          {data.map((item) => {
+          {data.map((item, i) => {
             return (
-              <h3 key={nanoid()}> {item.name} </h3>
+              <h3 key={nanoid()}> {i + 1} -  {item.name} </h3>
             );
           })}
         </div>

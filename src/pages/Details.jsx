@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Container from '../components/Container'
 import PageLayout from '../components/layouts/PageLayout'
-import Title from '../components/shared/Title/Title'
 import { useParams } from 'react-router-dom'
 
 const Details = () => {
@@ -35,11 +34,12 @@ const Details = () => {
     getTracks()
   }, [api_key, id])
 
+  console.log(albums)
+
   console.log(tracks)
   return (
     <PageLayout title="Details">
-      <Title size="medium" position="center"> Artist </Title>
-      <Container albums={albums} tracks={tracks} />
+      <Container albums={albums} tracks={tracks}  />
     </PageLayout>
   )
 }

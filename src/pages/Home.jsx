@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
 import { useQuery } from '@tanstack/react-query'
@@ -11,12 +10,13 @@ const Home = () => {
   const fetchTopArtists = () => {
     return axios.get(`http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${api_key}&format=json`)
   }
-  const { isLoading, data, error, isError } = useQuery(['top-artists'], fetchTopArtists)
+  const { isLoading, data, error, isError, isFetching } = useQuery(['top-artists'], fetchTopArtists, {
+    cacheTime: 5000,
+  })
 
   if (isLoading) return <div>Loading...</div>
-
-  if(isError) return <div>{error.message}</div>
-
+  if (isError) return <div>{error.message}</div>
+  console.log({isLoading, isFetching}) // cache control
   return (
     <PageLayout title="Home">
       <TopArtists artists={data?.data.artists.artist} />
