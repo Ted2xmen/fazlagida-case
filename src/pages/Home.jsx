@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
 
+
 const Home = () => {
   const [artists, setArtists] = useState([])
   const api_key = process.env.REACT_APP_LASTFM

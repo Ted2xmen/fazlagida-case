@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Badge from '../Badge/Badge'
+import Button from '../Button/Button'
 
 const Card = ({ item }) => {
   const navigate = useNavigate()
@@ -19,11 +20,7 @@ const Card = ({ item }) => {
             <Badge type="listeners"> {item.listeners} </Badge>
             <Badge type="playcount"> {item.playcount} </Badge>            
             </div>
-          <button
-            onClick={() => navigate(`/details/${item.mbid}`)}
-            className="mt-5 items-start bg-red-700 p-1 text-xs">
-            Details
-          </button>
+            <Button type="outline" label="Details" onClick={() => navigate(`/details/${item.mbid}`)} />
         </div>
       </div>
     </div>
