@@ -11,7 +11,7 @@ const PageLayout = ({ children, title }) => {
                     <meta name="keywords" content="react, redux, tailwind, react-query" />
                     <meta name="author" content="Tuğrul" />
                </Helmet>
-               <div className="max-w-6xl m-4 rounded-lg bg-gray-700 py-10 flex flex-col items-center mx-auto">
+               <div className="max-w-6xl m-4 rounded-lg  py-10 flex flex-col items-center mx-auto">
                     {children}
                </div>
           </div>

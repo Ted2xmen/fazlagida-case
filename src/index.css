@@ -5,24 +5,50 @@
 
 html,
 body {
-    background-color: gray;
-    color: white;
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100
 }
 
 /* title */
 
 .hero-title {
-    @apply text-6xl font-black uppercase text-teal-500
+    @apply text-6xl font-black uppercase
 }
 
 .large-title {
-    @apply text-3xl font-bold uppercase text-teal-200
+    @apply text-3xl font-bold uppercase 
 }
 
 .medium-title {
-    @apply text-xl font-medium uppercase text-teal-200
+    @apply text-xl font-medium uppercase 
 }
 
 .default-title {
-    @apply text-lg font-bold text-teal-200
+    @apply text-lg font-bold 
+}
+
+
+/* badge */
+.badge {
+   @apply text-xs inline-flex rounded items-center p-2 m-1
+}
+
+.badge-listeners {
+    @apply  bg-emerald-500 dark:bg-emerald-800 text-slate-100
+}
+
+.badge-playcount {
+    @apply  bg-emerald-700 dark:bg-emerald-600 text-slate-100
+}
+
+/* button */
+
+.btn {
+    @apply p-2 text-sm m-1 mt-4 rounded items-start
+}
+.btn-primary {
+    @apply text-sm bg-slate-100 text-slate-900 dark:bg-slate-100 dark:text-slate-800 
+}
+
+.btn-secondary {
+    @apply text-sm border border-slate-200 bg-slate-700
 }

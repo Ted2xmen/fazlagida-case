@@ -34,9 +34,9 @@ const Details = () => {
     getTracks()
   }, [api_key, id])
 
-  console.log(albums)
+  console.log(albums, "albums")
 
-  console.log(tracks)
+  console.log(tracks, "tracks")
   return (
     <PageLayout title="Details">
       <Container albums={albums} tracks={tracks}  />

@@ -9,7 +9,7 @@ const Container = ({ albums, tracks}) => {
       <div>
         <ArtistInfo info={albums} />
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 m-4 gap-5">
         <InfoContainer data={tracks} title="Top Tracks" />
         <InfoContainer data={albums} title="Top Albums" />
       </div>

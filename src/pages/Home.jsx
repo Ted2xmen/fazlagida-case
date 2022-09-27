@@ -16,7 +16,7 @@ const Home = () => {
 
   if (isLoading) return <div>Loading...</div>
   if (isError) return <div>{error.message}</div>
-  console.log({isLoading, isFetching}) // cache control
+  // console.log({isLoading, isFetching}) cache control
   return (
     <PageLayout title="Home">
       <TopArtists artists={data?.data.artists.artist} />
