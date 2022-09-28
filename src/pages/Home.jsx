@@ -1,22 +1,57 @@
+import { Fragment } from 'react'
 import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
+import Title from '../components/shared/Title/Title'
+import Button from '../components/shared/Button/Button'
+import axios from 'axios'
 
-import { useQuery } from '@tanstack/react-query'
-import { fetchTopArtists } from '../api/config'
+import { useInfiniteQuery } from '@tanstack/react-query'
+// import { useInView } from 'react-intersection-observer';
 
 const Home = () => {
+  // const { ref, inView, entry } = useInView({
+  //   threshold: 0,
+  // });
+  const { isLoading, data, error, isError, hasNextPage, fetchNextPage, isFetching, isFetchingNextPage } = useInfiniteQuery(['top-artists'],
+    async ({ pageParam = 1 }) => {
+      const res = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${process.env.REACT_APP_LASTFM}&page=${pageParam}&format=json`)
+      return res.data
+    },{
+      getNextPageParam: (_lastPage, allPages) => {
+        const nextPage = allPages.length + 1
+        return nextPage
+      }
+    })
+  // useEffect(() => {
+  //   if (inView) {
+  //     fetchNextPage()
+  //   }
+  // }, [inView]) instead added button
 
-  const { isLoading, data, error, isError } = useQuery(['top-artists'],
-    fetchTopArtists, {
-    cacheTime: 10000,
-  })
-
-  if(isLoading) return <div className='loading'>Loading...</div>
+  if (isLoading && isFetching) return <div className='loading'>Loading...</div>
   if (isError) return <div>{error.message}</div>
-  // console.log({isLoading, isFetching}) cache control
+
   return (
     <PageLayout title="Home">
-      <TopArtists artists={data?.data.artists.artist} />
+      <div>
+        <Title position="center" size="large">Top Artists 2022</Title>
+        {data.pages.map((page) => {
+          return (
+            <Fragment key={page.nextId}>
+              <div className='grid grid-cols-2 m-4 gap-4'>
+                <TopArtists artists={page} />
+              </div>
+            </Fragment>
+          );
+        })}
+      </div>
+      <Button label="Load More" type="primary"
+        onClick={() => fetchNextPage()}
+        disabled={!hasNextPage || isFetchingNextPage}
+      />
+      <div>
+        {!isFetchingNextPage && isFetching ? "fetching..." : ""}
+      </div>
     </PageLayout>
   )
 }
