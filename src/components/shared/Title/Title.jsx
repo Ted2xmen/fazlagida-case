@@ -20,20 +20,20 @@ const Title = ({ children, size, position }) => {
     let positions
     switch (position) {
         case 'center':
-            position = "text-center"
+            positions = "text-center"
             break;
         case 'left':
-            position = "text-left"
+            positions = "text-left"
             break;
         case 'right':
-            position = "text-right"
+            positions = "text-right"
             break;
         default:
             break;
     }
 
     return (
-        <h1 className={`${sizes} m-5 ${position}`}>{children}</h1>
+        <h1 className={`${sizes} m-5 ${positions}`}>{children}</h1>
     )
 }
 

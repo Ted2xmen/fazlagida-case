@@ -26,7 +26,6 @@ body {
     @apply text-lg font-bold 
 }
 
-
 /* badge */
 .badge {
    @apply text-xs inline-flex rounded items-center p-1 m-1
@@ -56,5 +55,12 @@ body {
 /* card */
 
 .card {
-    @apply flex backdrop-blur-lg overflow-hidden
+    @apply flex flex-col items-center lg:flex-row  backdrop-blur-lg overflow-hidden
+}
+
+
+/* other */
+
+.loading {
+    @apply flex justify-center h-screen text-red-600 text-4xl
 }

@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Case 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Storybook Linki : 
 
-## Available Scripts
+Production Preview : 
 
-In the project directory, you can run:
+Github Task : 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Boilerplate
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+create-react-app ile başlattığım projeye routerv6, tailwindcss, storybook ve react-query gibi teknolojileri dahil ettim. Kendi boilerplate kodlarım olsa da baştan hazırlamak istedim. 
 
-### `npm test`
+## Tailwind & Storybook
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Tailwind'i tasarımın anlaşılabilirliğinin yeterli görülmesi sebebiyle seçtim. Test yazmaya daha çok zaman kalsın istedim. 
 
-### `npm run build`
+- Son zamanlarda sıkça kullansam da storybook ile birlikte kullanmamıştım. Css kodlarını storybook'un yorumlamaması problemini, storybook/preview dosyasına tailwind'in işlediği dosyayı import ederek çözdüm.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Storybook'u daha önce sadece deneme amaçlı Next js ve styledcomponents ile birlikte kullanmıştım.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## React-query 
 
-### `npm run eject`
+Bu teknolojiyi 101 seviyesinde bilsem de daha önce hiç kullanmamıştım. Codevolution adlı youtube kanalındaki tutorial'dan faydalandım. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Cache 
+Cache'lemeyi kolayca halletsem de multiple query gerektiren "details" sayfası zamanımı aldı. Buradaki sorunları da şu aşağıdaki iki kaynak ve dökümantasyon sayesinde çözdüm. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- https://stackoverflow.com/questions/70630491/how-to-get-usequeries-to-only-fetch-once 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- https://stackoverflow.com/questions/66427968/how-to-handle-multiple-queries-with-react-query
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Hem anasayfadaki hem de toptracks ve topalbums kısmındaki data'ları cache'lemeyi başardım. 
 
-## Learn More
+<!-- > Query'leri custom hook olarak da hazırladım ve tek olarak çalışır hale getirdim. Ancak multiple query'ler olarak kullanabilmek için ekstra çaba gerektirdiğinden kullanmadım.  -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Infinite loading
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

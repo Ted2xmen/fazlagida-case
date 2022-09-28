@@ -1,45 +1,31 @@
-import React, { useState, useEffect } from 'react'
 import Container from '../components/Container'
 import PageLayout from '../components/layouts/PageLayout'
 import { useParams } from 'react-router-dom'
 
-const Details = () => {
-  const [albums, setAlbums] = useState([])
-  const [tracks, setTracks] = useState([])
+import { fetchTopAlbums, fetchTopTracks } from '../api/config'
+import { useQuery } from '@tanstack/react-query'
 
-  const api_key = process.env.REACT_APP_LASTFM
+
+
+const Details = () => {
+  
   const { id } = useParams()
 
-  useEffect(() => {
-    const getAlbums = () => {
-      fetch(
-        `https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&mbid=${id}&api_key=${api_key}&format=json`
-      )
-        .then((response) => response.json())
-        .then((data) => setAlbums(data.topalbums.album)
-        )
-    }
-    getAlbums()
-  }, [api_key, id])
+  const dataTrack = useQuery(['top-tracks', id],
+    () => fetchTopTracks(id), {
+    cacheTime: 10000,
+  })
 
-    useEffect(() => {
-    const getTracks = () => {
-      fetch(
-        `https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&mbid=${id}&api_key=${api_key}&format=json`
-      )
-        .then((response) => response.json())
-        .then((data) => setTracks(data.toptracks.track)
-        )
-    }
-    getTracks()
-  }, [api_key, id])
+  const dataAlbum = useQuery(['top-albums', id],
+    () => fetchTopAlbums(id), {
+    cacheTime: 10000,
+  })
 
-  console.log(albums, "albums")
+  if (dataAlbum.isLoading || dataTrack.isLoading) return <div className='loading'>Loading...</div>
 
-  console.log(tracks, "tracks")
   return (
     <PageLayout title="Details">
-      <Container albums={albums} tracks={tracks}  />
+      <Container albums={dataAlbum?.data.data.topalbums.album} tracks={dataTrack?.data.data.toptracks.track} />
     </PageLayout>
   )
 }
