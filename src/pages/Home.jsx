@@ -1,9 +1,10 @@
 import { Fragment } from 'react'
+import axios from 'axios'
+
 import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
 import Title from '../components/shared/Title/Title'
 import Button from '../components/shared/Button/Button'
-import axios from 'axios'
 
 import { useInfiniteQuery } from '@tanstack/react-query'
 // import { useInView } from 'react-intersection-observer';
@@ -38,7 +39,7 @@ const Home = () => {
         {data.pages.map((page) => {
           return (
             <Fragment key={page.nextId}>
-              <div className='grid grid-cols-2 m-4 gap-4'>
+              <div className='grid grid-cols-1 lg:grid-cols-2 m-4 gap-4'>
                 <TopArtists artists={page} />
               </div>
             </Fragment>

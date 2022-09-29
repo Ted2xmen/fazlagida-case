@@ -1,8 +1,10 @@
 # Case 
 
-Storybook Linki :  https://fazlagida-case-jz8l.vercel.app
+Storybook :  https://fazlagida-case-jz8l.vercel.app
 
-Production Preview : https://fazlagida-case.vercel.app/
+Production : https://fazlagida-case.vercel.app/
+
+Repository : https://github.com/Ted2xmen/fazlagida-case
 
 Github Task : https://github.com/users/Ted2xmen/projects/5
 
@@ -26,7 +28,7 @@ Diğer paketler;
 
 - Storybook'u daha önce sadece deneme amaçlı Next js ve styledcomponents ile birlikte kullanmıştım.
 
-- Zaman durumuna göre index.css dosyasındaki class isimleri belki BEM metoduyla yeniden düzenlenebilir
+- Zaman durumuna göre index.css dosyasındaki class isimleri !belki BEM metoduyla yeniden düzenlenebilir
 
 ## React-query 
 
@@ -34,7 +36,7 @@ Bu teknolojiyi 101 seviyesinde bilsem de daha önce hiç kullanmamıştım. Öğ
 
 
 ### Cache 
-Cache'lemeyi kolayca halletsem de multiple query gerektiren "details" sayfası zamanımı aldı. Buradaki sorunları da şu aşağıdaki iki kaynak ve dökümantasyon sayesinde çözdüm. 
+Cache'lemeyi kolayca halletsem de multiple query gerektiren "details" sayfası zamanımı aldı. Buradaki sorunları da şu aşağıdaki iki kaynak ve dokümantasyon sayesinde çözdüm. 
 
 - https://stackoverflow.com/questions/70630491/how-to-get-usequeries-to-only-fetch-once 
 
@@ -48,11 +50,11 @@ Hem anasayfadaki hem de toptracks ve topalbums kısmındaki data'ları cache'lem
 
 React-query'nin dokümantasyonundaki örneğe dayanarak gerçekleştirdim. react-intersection-observer ile sayfa sonuna indikçe yeni verileri yüklemesi yerine bir buton koymayı tercih ettim. Ama gereken kodu da yorum satırıyla bıraktım. 
 
-Karşılaştığım problem pageparams'ın undefined dönmesiydi. Aşağıdaki linkteki örneğe bakarak sorunu çözdüm. 
+Karşılaştığım ve sanırım sıkça karşılaşılan problem pageparams'ın undefined dönmesiydi. Aşağıdaki linkteki örneğe bakarak sorunu çözdüm. 
 
 - https://blog.openreplay.com/infinite-scrolling-with-react-query/
 
-Diğer kaynaklar;
+faydalandığım diğer kaynaklar;
 
 - https://tanstack.com/query/v4/docs/examples/react/load-more-infinite-scroll
 
@@ -63,3 +65,4 @@ Diğer kaynaklar;
 - https://stackoverflow.com/questions/72454343/react-query-parameters-are-empty-on-page-load
 
 
+# Testing

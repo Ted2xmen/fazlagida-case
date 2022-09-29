@@ -18,7 +18,7 @@ const Card = ({ item, onClick, cardType }) => {
     }
   </div>
 
-  const Cover = <img className='' src={item.image[2]['#text'] || item.image} alt="" />
+  const Cover = <img className='shadow-lg' src={item.image[2]['#text']} alt="placeholder" />
 
   let cardTypes
   switch (cardType) {
@@ -26,7 +26,7 @@ const Card = ({ item, onClick, cardType }) => {
       cardTypes = "bg-slate-700 space-y-2 pr-2 items-center rounded-lg"
       break;
     case "InfoContainer":
-      cardTypes = "bg-teal-700 p-4 space-x-5 hover:bg-teal-800"
+      cardTypes = "bg-slate-800 p-4 space-x-5 hover:bg-slate-900"
       break;
     default:
       break;
