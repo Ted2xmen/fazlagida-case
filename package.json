@@ -36,7 +36,7 @@
   "jest" : {
     "collectCoverageFrom": [
       "src/components/shared/**/*.{js,jsx}",
-      "!src/components/shared/**/*.{stories}.{js,jsx}"
+      "!src/components/shared/**/*.{stories, types}.{js,jsx}"
     ]
   },
   "eslintConfig": {

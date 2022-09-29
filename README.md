@@ -8,6 +8,10 @@ Repository : https://github.com/Ted2xmen/fazlagida-case
 
 Github Task : https://github.com/users/Ted2xmen/projects/5
 
+## Lastfm API 
+
+Bazı endpointlerde görsel gelmiyor. Bu nedenle sadece details sayfasındaki albümlerin görseli var.
+- https://stackoverflow.com/questions/55978243/last-fm-api-returns-same-white-star-image-for-all-artists
 
 ## Boilerplate
 
@@ -66,3 +70,11 @@ faydalandığım diğer kaynaklar;
 
 
 # Testing
+
+- https://jestjs.io/docs/using-matchers
+
+- https://github.com/testing-library/jest-dom
+
+- https://robertmarshall.dev/blog/react-component-props-passed-to-child-jest-unit-test/
+
+- Testing Conditional Render In React https://www.youtube.com/watch?v=To2PzUT1lQ4

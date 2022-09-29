@@ -5,20 +5,20 @@ import Title from '../Title/Title'
 
 const Card = ({ item, onClick, cardType }) => {
 
-  const Name = <Title size="medium">{item.name}</Title>
+  const Name = <Title size="medium">{item?.name}</Title>
 
   const OnClickComponent = onClick && <div className='p-2'>
     {onClick && <Button type="primary" label="Details" onClick={onClick} />}
   </div>
 
   const Badges = <div className='flex space-x-3'>
-    {item.listeners && <Badge icon type="listeners"> {Number(item.listeners).toLocaleString('en-US')} </Badge>
+    {item?.listeners && <Badge data-testid="listeners" icon type="listeners"> {Number(item?.listeners).toLocaleString('en-US')} </Badge>
     }
-    {item.playcount && <Badge icon type="playcount"> {Number(item.playcount).toLocaleString('en-US')} </Badge>
+    {item?.playcount && <Badge data-testid="playcount" icon type="playcount"> {Number(item?.playcount).toLocaleString('en-US')} </Badge>
     }
   </div>
 
-  const Cover = <img className='shadow-lg' src={item.image[2]['#text']} alt="placeholder" />
+  const Cover = <img className='shadow-lg' src={item?.image[2]['#text']} alt="placeholder" />
 
   let cardTypes
   switch (cardType) {

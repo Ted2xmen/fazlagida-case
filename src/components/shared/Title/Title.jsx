@@ -14,7 +14,7 @@ const Title = ({ children, size, position }) => {
             sizes = "medium-title"
             break
         default:
-            return <h1 className="default-title"> {children} </h1>
+            break;
     }
 
     let positions

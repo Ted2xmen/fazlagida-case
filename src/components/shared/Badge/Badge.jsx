@@ -20,8 +20,8 @@ const Badge = ({ type, children, icon }) => {
   }
 
   return (
-    <span className={`${types} badge`}>
-      {icon && <i className='mr-2'> {icon ? icons : null} </i>}
+    <span data-testid="badge" className={`${types} badge`}>
+      {icon && <i className='mr-2'> {icon ? icons : null}</i>}
       {children}
     </span>
   )
