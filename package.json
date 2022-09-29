@@ -27,10 +27,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --watchAll --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic --project-token=83a70881ecc7"
+  },
+  "jest" : {
+    "collectCoverageFrom": [
+      "src/components/shared/**/*.{js,jsx}",
+      "!src/components/shared/**/*.{stories}.{js,jsx}"
+    ]
   },
   "eslintConfig": {
     "extends": [

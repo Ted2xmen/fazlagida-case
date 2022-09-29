@@ -17,7 +17,7 @@ const Button = ({label, shadow, type, ...props}) => {
     let isShadow = shadow ? "shadow-lg hover:shadow-none" : null
 
   return (
-    <button {...props} className={`btn ${isShadow} ${types}`}>{label}</button>
+    <button {...props} data-testid="button" disabled={!label} className={`btn ${isShadow} ${types}`}>{label}</button>
   )
 }
 
