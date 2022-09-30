@@ -23,10 +23,10 @@ const Card = ({ item, onClick, cardType }) => {
   let cardTypes
   switch (cardType) {
     case "TopArtists":
-      cardTypes = "bg-slate-700 space-y-2 pr-2 items-center rounded-lg"
+      cardTypes = "bg-slate-700 dark:text-slate-100 text-slate-100 space-y-2 pr-2 items-center rounded-lg"
       break;
     case "InfoContainer":
-      cardTypes = "bg-slate-800 p-4 space-x-5 hover:bg-slate-900"
+      cardTypes = "bg-teal-500 dark:bg-teal-800 p-4 space-x-5"
       break;
     default:
       break;
