@@ -15,7 +15,7 @@ Bazı endpointlerde görsel gelmiyor. Bu nedenle sadece details sayfasındaki al
 
 ## Boilerplate
 
-create-react-app ile başlattığım projeye routerv6, tailwindcss, storybook ve react-query gibi teknolojileri dahil ettim. Kendi boilerplate kodlarım olsa da baştan hazırlamak istedim. State management için reduxtoolkit'i de dahil ettim. Zaman durumuna göre belki data'yı store üzerinden dağıtmayı deneyebilirim. Eslint ve prettier gibi kod iyileştirme araçlarını, yaptıkları pekçok şeyi Vscode ile halledebiliyor olmamdan ötürü dahil etmedim.
+create-react-app ile başlattığım projeye routerv6, tailwindcss, storybook ve react-query gibi teknolojileri dahil ettim. Kendi boilerplate kodlarım olsa da baştan hazırlamak istedim. State management için reduxtoolkit'i de dahil ettim. 
 
 Diğer paketler;
 - react-intersection-observer
@@ -33,6 +33,12 @@ Diğer paketler;
 - Storybook'u daha önce sadece deneme amaçlı Next js ve styledcomponents ile birlikte kullanmıştım.
 
 - Zaman durumuna göre index.css dosyasındaki class isimleri !belki BEM metoduyla yeniden düzenlenebilir
+
+###  Dark Mode
+
+Dark ve light mode arasındaki geçişleri tamamladım. 
+
+- Sonra çözmek için bir bug tespit ettim. Site ilk kez açıldığında localstorage'da veri olmadığı için butona ikinci kez basıldıgında geçişleri gerçekleştiriyor. Bunu da sanırım site ilk kez açılır açılmaz localstorage'a default veri ekleyerek çözebilirim.
 
 ## React-query 
 
@@ -71,6 +77,8 @@ faydalandığım diğer kaynaklar;
 
 # Testing
 
+Öncelikle test için gerekli configurasyon ayarlarını yaptım. Testi, src/components/shared klasörü içindekilerle sınırladım. Buradaki componentler aynı zamanda storybook üzerinde geliştirdiğim componentler. Aşama aşama test etmek için bu sınırlamayı yaptım. Ayrıca ilk kez test yazıyorum ve  öğrendikçe ilerliyorum. Full coverage'a ulaşabilirdim ama bu zaman alır. Deadline'ı fazla uzatmamak için burada bırakıyorum.
+
 - https://jestjs.io/docs/using-matchers
 
 - https://github.com/testing-library/jest-dom
@@ -78,3 +86,20 @@ faydalandığım diğer kaynaklar;
 - https://robertmarshall.dev/blog/react-component-props-passed-to-child-jest-unit-test/
 
 - Testing Conditional Render In React https://www.youtube.com/watch?v=To2PzUT1lQ4
+
+File         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------|---------|----------|---------|---------|-------------------
+All files    |   79.59 |    66.66 |     100 |   79.59 |                   
+ Badge       |      60 |    28.57 |     100 |      60 |                   
+  Badge.jsx  |      60 |    28.57 |     100 |      60 | 11-13,19          
+ Button      |     100 |      100 |     100 |     100 |                   
+  Button.jsx |     100 |      100 |     100 |     100 |                   
+ Card        |   66.66 |    61.53 |     100 |   66.66 |                   
+  Card.jsx   |   66.66 |    61.53 |     100 |   66.66 | 26-30             
+ Title       |   88.88 |     87.5 |     100 |   88.88 |                   
+  Title.jsx  |   88.88 |     87.5 |     100 |   88.88 | 29-30  
+
+  ## todo
+
+- Anasayfada aşağılara inip bir sanatçının detaylarına tıkladığımızda "details" sayfası en aşağıdan başlıyor. Bunu details sayfasını en yukarıda açtırarak çözebiliriz. (react-intersection-observer)
+- Tailwind.config dosyasını özelleştirmedim ama burada, standardı sağlamak adına, özel boşluklar, renkler, kalıp efektler vb özellikler ekleyebilirdik. 
