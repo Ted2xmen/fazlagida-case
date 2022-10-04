@@ -5,8 +5,6 @@ import { useParams } from 'react-router-dom'
 import { fetchTopAlbums, fetchTopTracks } from '../api/config'
 import { useQuery } from '@tanstack/react-query'
 
-
-
 const Details = () => {
   
   const { id } = useParams()
