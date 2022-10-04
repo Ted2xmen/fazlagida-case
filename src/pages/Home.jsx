@@ -1,19 +1,19 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useState, ref } from 'react'
 import axios from 'axios'
 
 import PageLayout from '../components/layouts/PageLayout'
 import TopArtists from '../components/TopArtists'
 import Title from '../components/shared/Title/Title'
-import Button from '../components/shared/Button/Button'
-
-import { useInfiniteQuery } from '@tanstack/react-query'
 import SearchBox from '../components/SearchBox'
 
-const Home = () => {
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { useInView } from 'react-intersection-observer'
 
+
+const Home = () => {
+  //search related
   const [searchTerm, setSearchTerm] = useState('')
   const [searchData, setSearchData] = useState([])
-
   useEffect(() => {
     const api_key = process.env.REACT_APP_LASTFM
     const fetchSearchData = (searchTerm) => {
@@ -23,8 +23,9 @@ const Home = () => {
     fetchSearchData(searchTerm)
 
   }, [searchTerm])
+  //search related
 
-
+  // infinite scrolling
   const { isLoading, data, error, isError, hasNextPage, fetchNextPage, isFetching, isFetchingNextPage } = useInfiniteQuery(['top-artists'],
     async ({ pageParam = 1 }) => {
       const res = await axios.get(`https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${process.env.REACT_APP_LASTFM}&page=${pageParam}&format=json`)
@@ -36,18 +37,21 @@ const Home = () => {
     }
   })
 
+  const { ref, inView } = useInView()
+  useEffect(() => {
+    if (inView) fetchNextPage()
+  }, [inView, fetchNextPage])
+ 
   if (isLoading && isFetching) return <div className='loading'>Loading...</div>
   if (isError) return <div>{error.message}</div>
-
+ // infinite scrolling
 
   return (
     <PageLayout title="Home">
-      <div>
         <SearchBox setSearchTerm={setSearchTerm} />
-
-        <Title 
-        position="center" 
-        size="large">{searchData.results ? "Search Results" : "Top Artists 2022"}</Title>
+        <Title
+          position="center"
+          size="large">{searchData.results ? "Search Results" : "Top Artists 2022"}</Title>
 
         {searchData.results ?
           <TopArtists searchResults={searchData?.results} />
@@ -64,11 +68,11 @@ const Home = () => {
             })}
           </>}
 
+      <div ref={ref}>
+        {isFetchingNextPage
+          ? <h2 className='loading'> loading.. </h2>
+          : null}
       </div>
-      <Button label="Load More" type="primary"
-        onClick={() => fetchNextPage()}
-        disabled={!hasNextPage || isFetchingNextPage}
-      />
     </PageLayout>
   )
 }
